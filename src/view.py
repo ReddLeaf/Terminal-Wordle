@@ -1,4 +1,5 @@
-from classes import LetterStatus
+from .classes import LetterStatus
+
 
 class WordleView:
     def ask_for_guess(self) -> str:
@@ -13,7 +14,31 @@ class WordleView:
             if not guess.isalpha():
                 print("That's not a valid word!")
 
+        print()
         return guess   
             
-    def show_guess_status(self, guess: str, status: LetterStatus) -> None:
-        ...
+    def show_guess_status(self, guess: str, status: list[None | LetterStatus]) -> None:
+        print(" " + "   ".join(list(guess)))
+        print("  ".join(str(stat) for stat in status))
+        print()
+
+    def show_end_message(self, win: bool, answer: str, attempts: int) -> None:
+        if win:
+            match attempts:
+                case 6:
+                    print("Genius")
+                case 5:
+                    print("Magnificent")
+                case 4:
+                    print("Impressive")
+                case 3:
+                    print("Splendid")
+                case 2:
+                    print("Great")
+                case 1:
+                    print("Phew")
+                case _: # > 6
+                    print("Genius")
+            print("You got it!")
+        else:
+            print(f"Better luck next time, the word was {answer}")

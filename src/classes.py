@@ -1,13 +1,10 @@
-from enum import Enum, auto
-
-class LetterStatus(Enum):
-    CORRECT = auto()
-    INCORRECT = auto()
-    PARTIAL = auto()
+from enum import StrEnum
 
 
-class Player:
-    def __init__(self) -> None:
-        self._correct: set[str] = set()
-        self._incorrect: set[str] = set()
-        self._partial: set[str] = set()
+class LetterStatus(StrEnum):
+    CORRECT = "🟩"
+    INCORRECT = "⬜"
+    PARTIAL = "🟨"
+
+    def __str__(self) -> str:
+        return self.value
