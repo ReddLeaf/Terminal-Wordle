@@ -2,6 +2,8 @@
 
 Why? Because I got bored at 1 AM on a Sunday... and I don't want to study. 🌇
 
+Also used this as an excuse to practice MVC for school, we listen and we don't judge (or do, sure).
+
 ## 🐍 About
 
 We all know what Wordle is! The daily puzzle game by NYT where you have to guess a random 5-letter words in 6 tries or less. 
