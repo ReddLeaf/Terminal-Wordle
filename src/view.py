@@ -1,17 +1,17 @@
-from .classes import LetterStatus
+from .utils import LetterStatus, is_valid_word
 
 
 class WordleView:
     def ask_for_guess(self) -> str:
         guess = ""
 
-        while len(guess) != 5 or not guess.isalpha():
+        while len(guess) != 5 or not guess.isalpha() or not is_valid_word(guess):
             guess = input("Make your guess [5-letters]: ").upper().strip()
 
             if len(guess) != 5:
                 print("Your word has to be 5 letters long!")
             
-            if not guess.isalpha():
+            elif not guess.isalpha() or not is_valid_word(guess):
                 print("That's not a valid word!")
 
         print()
@@ -26,19 +26,19 @@ class WordleView:
         if win:
             match attempts:
                 case 6:
-                    print("Genius")
+                    print("Genius!")
                 case 5:
-                    print("Magnificent")
+                    print("Magnificent!")
                 case 4:
-                    print("Impressive")
+                    print("Impressive!")
                 case 3:
-                    print("Splendid")
+                    print("Splendid!")
                 case 2:
-                    print("Great")
+                    print("Great!")
                 case 1:
-                    print("Phew")
+                    print("Phew...")
                 case _: # > 6
-                    print("Genius")
+                    print("Genius!")
             print("You got it!")
         else:
-            print(f"Better luck next time, the word was {answer}")
+            print(f"Better luck next time, the word was {answer}.")

@@ -1,4 +1,4 @@
-from .classes import LetterStatus
+from .utils import LetterStatus
 
 
 class WordleModel:
