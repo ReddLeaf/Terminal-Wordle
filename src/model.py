@@ -27,12 +27,11 @@ class WordleModel:
         return False
     
     def make_guess(self, guess: str) -> list[None | LetterStatus]:
-        guess_list = list(guess)
         remaining = list(self._answer)
         status: list[None | LetterStatus] = [None] * len(self._answer)
 
         for i in range(len(self._answer)):
-            if guess_list[i] == remaining[i]:
+            if guess[i] == remaining[i]:
                 status[i] = LetterStatus.CORRECT
                 remaining[i] = ""
         
