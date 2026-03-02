@@ -3,7 +3,7 @@ from .utils import LetterStatus
 
 class WordleModel:
     def __init__(self, max_attempts: int, answer: str) -> None:
-        self._attempts = max_attempts
+        self._max_attempts = self._attempts = max_attempts
         self._answer = answer
         self._guesses: list[list[None | LetterStatus]] = []
 
@@ -20,6 +20,14 @@ class WordleModel:
     @property
     def attempts(self):
         return self._attempts
+    
+    @property
+    def max_attempts(self):
+        return self._max_attempts
+    
+    @property
+    def results(self):
+        return self._guesses
     
     def did_player_win(self) -> bool:
         if self._attempts > 0 and self._is_game_over:

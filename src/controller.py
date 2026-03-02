@@ -17,3 +17,4 @@ class WordleController:
             model.next_attempt()
         
         view.show_end_message(model.did_player_win(), model.answer, model.attempts)
+        view.show_results(model.attempts, model.max_attempts, model.results)
