@@ -24,7 +24,7 @@ class WordleView:
 
     def show_results(self, attempts_left: int, max_attempts: int, results: list[list[None | LetterStatus]]) -> None:
         attempts = max_attempts - attempts_left + 1
-        print(f"\nTerminal Wordle {attempts if attempts <= 6 else "X"}/{max_attempts}\n")
+        print(f"\nTermindle {attempts if attempts <= 6 else "X"}/{max_attempts}\n")
         for res in results:
             print("".join(str(r) for r in res))
         print()
